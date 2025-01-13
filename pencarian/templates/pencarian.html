@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pencarian</title>
+</head>
+<body>
+    <h1>Pencarian Data</h1>
+    <form method="get">
+        <input type="text" name="query" placeholder="Masukkan kata kunci" value="{{ query }}">
+        <select name="kategori">
+            <option value="nama" {% if kategori == 'nama' %}selected{% endif %}>Nama</option>
+            <option value="judul" {% if kategori == 'judul' %}selected{% endif %}>Judul</option>
+        </select>
+        <button type="submit">Cari</button>
+    </form>
+    <table border="1">
+        <tr>
+            <th>No TA</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Judul</th>
+        </tr>
+        {% for item in hasil %}
+        <tr>
+            <td>{{ item.no_ta }}</td>
+            <td>{{ item.nim }}</td>
+            <td>{{ item.nama }}</td>
+            <td>{{ item.judul }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{% url 'home' %}">Kembali ke Beranda</a>
+</body>
+</html>

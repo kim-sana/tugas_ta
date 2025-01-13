@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Utama</title>
+</head>
+<body>
+    <h1>Selamat datang di Aplikasi Pencarian Judul Tugas Akhir</h1>
+    <p>Silakan pilih salah satu opsi di bawah ini:</p>
+    <ul>
+        <li><a href="{% url 'lihat_data' %}">Lihat Daftar Judul TA</a></li>
+        <li><a href="{% url 'pencarian' %}">Pencarian Judul TA</a></li>
+        <li><a href="{% url 'tentang' %}">Tentang Aplikasi</a></li> <!-- Opsi Tentang -->
+    </ul>
+</body>
+</html>

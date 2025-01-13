@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lihat Data</title>
+</head>
+<body>
+    <h1>Data Tugas Akhir</h1>
+    <table border="1">
+        <tr>
+            <th>No TA</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Judul</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.no_ta }}</td>
+            <td>{{ item.nim }}</td>
+            <td>{{ item.nama }}</td>
+            <td>{{ item.judul }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <br>
+    <a href="{% url 'home' %}">Kembali ke Beranda</a>
+</body>
+</html>

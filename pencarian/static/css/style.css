@@ -34,7 +34,7 @@ h1 {
     height: 65%;
     background-color: #0262b3; /* Warna latar belakang merah */
     color: white; /* Warna teks putih */
-    padding: 10% 20%; /* Jarak dalam tombol */
+    padding: 10px 20px; /* Jarak dalam tombol */
     text-align: left; /* Teks rata tengah */
     text-decoration: none; /* Menghilangkan garis bawah pada tautan */
     display: inline-block; /* Membuat tombol tampil dalam baris yang sama */

@@ -1,0 +1,104 @@
+/* Menambahkan font ke dalam halaman */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('{% BRLNSDB.TTF" %}') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Mengatur gambar sebagai background untuk body */
+body {
+    background-image: url("{% static 'images/background.jpg' %}");
+    background-size: cover;  /* Menyesuaikan ukuran gambar dengan layar */
+    background-position: center center;  /* Menempatkan gambar di tengah */
+    background-attachment: fixed;  /* Membuat gambar tetap saat scroll */
+    height: 100%;  /* Mengatur tinggi halaman agar sesuai dengan tinggi layar */
+    margin: 0;
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    
+}
+
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Source Sans Variable', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Gaya untuk tombol-tombol */
+.button {
+    width: 25%;
+    height: 70%;
+    background-color: #0262b3; /* Warna latar belakang merah */
+    color: white; /* Warna teks putih */
+    padding: 10px 20px; /* Jarak dalam tombol */
+    text-align: left; /* Teks rata tengah */
+    text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+    display: inline-block; /* Membuat tombol tampil dalam baris yang sama */
+    border-radius: 7.5%; /* Membulatkan sudut tombol */
+    border: 6px solid #ffffff; /* Border setebal 6px dengan warna yang sama dengan latar belakang */
+    font-size: 250%; /* Ukuran font tombol */
+    transition: background-color 0.3s, color 0.3s; /* Efek transisi saat hover */
+    margin-right: 0.3%;
+    margin-left: 3.5%;
+    margin-top: 5%;
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    font-weight: bold;
+    text-decoration-line: underline;
+    
+}
+
+
+.button:hover {
+    background-color: #ffffff; /* Warna latar belakang putih saat hover */
+    color: #0262b3; /* Warna teks merah saat hover */
+
+
+}
+
+.button-container {
+    display: flex; /* Menggunakan flexbox */
+    gap: 60%; /* Memberikan jarak antar tombol */
+    justify-content: center; /* Menyusun tombol di tengah */
+}
+
+.desc {
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    font-weight: bold;
+    color: #0262b3;
+    text-align: left;
+    position: relative;left: 5.2%; bottom: 67%;
+    transition: background-color 0.3s, color: 0.3s;
+}
+
+.desc1 {
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    font-weight: bold;
+    color: #0262b3;
+    text-align: left;
+    position: relative;left: 37.9%; bottom: 71%;
+    transition: background-color 0.3s, color: 0.3s;
+}
+
+
+.desc:hover{
+    color:#ffffff;
+}
+
+.button-img{
+    background-image: url('{% static 'images/Book.png' %}');
+    color: #ffffff;
+    position: absolute;
+    top: 55%;
+    left: 9%;
+    height: auto;
+    transition: background-color 0.3s, color 1.5s;
+    pointer-events: auto;
+}
+
+.button-img:hover{
+    background-color: #ffffff;
+    color:#0262b3;
+}

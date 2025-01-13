@@ -1,17 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Utama</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Mengatur gambar sebagai background untuk body */
+        body {
+            background-image: url("{% static 'images/background.jpg' %}");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Selamat datang di Aplikasi Pencarian Judul Tugas Akhir</h1>
-    <p>Silakan pilih salah satu opsi di bawah ini:</p>
-    <ul>
-        <li><a href="{% url 'lihat_data' %}">Lihat Daftar Judul TA</a></li>
-        <li><a href="{% url 'pencarian' %}">Pencarian Judul TA</a></li>
-        <li><a href="{% url 'tentang' %}">Tentang Aplikasi</a></li> <!-- Opsi Tentang -->
-    </ul>
-</body>
+
+    <h1>Selamat datang di Aplikasi Pencarian Judul TA</h1>
+
+    <a href="{% url 'lihat_data' %}" class="button">LIHAT<img src="{% static 'images/Book.png' %}" alt="Gambar Buku" class="button-img"></a>
+    <a href="{% url 'pencarian' %}" class="button">PENCARIAN</a>
+    <a href="{% url 'tentang' %}" class="button">TENTANG</a>
+    <p class="desc">Lihat seluruh judul buku Tugas Akhir</p>
+    <p class="desc1">Cari judul buku Tugas Akhir</p>
+
 </html>

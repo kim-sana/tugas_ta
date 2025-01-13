@@ -1,8 +1,15 @@
+import json
 from django.shortcuts import render
 from .models import TugasAkhir
 from .forms import LoginForm
+from django.conf import settings
 
-
+# Fungsi untuk membaca file JSON
+def load_json_data():
+    file_path = settings.BASE_DIR / 'pencarian/data/ta_data.json'  # Pastikan path file JSON sesuai
+    with open(file_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data
 
 def login_view(request):
     if request.user.is_authenticated:
@@ -38,14 +45,19 @@ def lihat_data(request):
 def pencarian(request):
     query = request.GET.get('query', '')
     kategori = request.GET.get('kategori', 'nama')
+    hasil = []
+
     if query:
         if kategori == 'nama':
             hasil = TugasAkhir.objects.filter(nama__icontains=query)
         elif kategori == 'judul':
             hasil = TugasAkhir.objects.filter(judul__icontains=query)
-        else:
-            hasil = TugasAkhir.objects.all()
-    else:
-        hasil = []
+        elif kategori == 'nim':
+            hasil = TugasAkhir.objects.filter(nim__icontains=query)
+        elif kategori == 'no_ta':
+            hasil = TugasAkhir.objects.filter(no_ta__icontains=query)
 
-    return render(request, 'pencarian.html', {'hasil': hasil, 'query': query})
+    print("Hasil Pencarian:", hasil)  # Debugging untuk melihat data hasil
+
+    return render(request, 'pencarian.html', {'hasil': hasil, 'query': query, 'kategori': kategori})
+

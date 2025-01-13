@@ -1,7 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pencarian</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Data</title>
+    <style>
+        /* Gaya untuk body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0262b3;
+        }
+
+        /* Gaya untuk form pencarian */
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0262b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004a91;
+        }
+
+        /* Gaya untuk tabel */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0262b3;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Link kembali */
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0262b3;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Pencarian Data</h1>
@@ -10,27 +102,37 @@
         <select name="kategori">
             <option value="nama" {% if kategori == 'nama' %}selected{% endif %}>Nama</option>
             <option value="judul" {% if kategori == 'judul' %}selected{% endif %}>Judul</option>
+            <option value="nim" {% if kategori == 'nim' %}selected{% endif %}>NIM</option>
+            <option value="no_ta" {% if kategori == 'no_ta' %}selected{% endif %}>Nomor Tugas Akhir</option>
         </select>
         <button type="submit">Cari</button>
     </form>
-    <table border="1">
-        <tr>
-            <th>No TA</th>
-            <th>NIM</th>
-            <th>Nama</th>
-            <th>Judul</th>
-        </tr>
-        {% for item in hasil %}
-        <tr>
-            <td>{{ item.no_ta }}</td>
-            <td>{{ item.nim }}</td>
-            <td>{{ item.nama }}</td>
-            <td>{{ item.judul }}</td>
-        </tr>
-        {% endfor %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>No TA</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Judul</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in hasil %}
+            <tr>
+                <td>{{ item.no_ta }}</td>
+                <td>{{ item.nim }}</td>
+                <td>{{ item.nama }}</td>
+                <td>{{ item.judul }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center;">Tidak ada data yang ditemukan.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
-    <br>
     <a href="{% url 'home' %}">Kembali ke Beranda</a>
 </body>
 </html>

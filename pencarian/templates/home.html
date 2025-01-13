@@ -10,7 +10,7 @@
     <style>
         /* Mengatur gambar sebagai background untuk body */
         body {
-            background-image: url("{% static 'images/background.jpg' %}");
+            background-image: url("{% static 'images/background1.jpg' %}");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -21,12 +21,13 @@
 </head>
 <body>
 
-    <h1>Selamat datang di Aplikasi Pencarian Judul TA</h1>
+    <h1>Selamat datang di Aplikasi Pencarian Judul TA Angkatan 2021-2022</h1>
 
     <a href="{% url 'lihat_data' %}" class="button">LIHAT<img src="{% static 'images/Book.png' %}" alt="Gambar Buku" class="button-img"></a>
-    <a href="{% url 'pencarian' %}" class="button">PENCARIAN</a>
-    <a href="{% url 'tentang' %}" class="button">TENTANG</a>
+    <a href="{% url 'pencarian' %}" class="button">PENCARIAN<img src="{% static 'images/Glass.png' %}" alt="Gambar Buku" class="button-img1"></a>
+    <a href="{% url 'tentang' %}" class="button">TENTANG<img src="{% static 'images/Info.png' %}" alt="Gambar Buku" class="button-img2"></a>
     <p class="desc">Lihat seluruh judul buku Tugas Akhir</p>
     <p class="desc1">Cari judul buku Tugas Akhir</p>
+    <p class="desc2">Informasi seputar aplikasi</p>
 
 </html>

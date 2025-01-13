@@ -8,13 +8,14 @@
 
 /* Mengatur gambar sebagai background untuk body */
 body {
-    background-image: url("{% static 'images/background.jpg' %}");
+    background-image: url("{% static 'images/background1.jpg' %}");
     background-size: cover;  /* Menyesuaikan ukuran gambar dengan layar */
     background-position: center center;  /* Menempatkan gambar di tengah */
     background-attachment: fixed;  /* Membuat gambar tetap saat scroll */
     height: 100%;  /* Mengatur tinggi halaman agar sesuai dengan tinggi layar */
     margin: 0;
     font-family: 'Berlin Sans FB Demi', sans-serif;
+    overflow: hidden;
     
 }
 
@@ -30,10 +31,10 @@ h1 {
 /* Gaya untuk tombol-tombol */
 .button {
     width: 25%;
-    height: 70%;
+    height: 65%;
     background-color: #0262b3; /* Warna latar belakang merah */
     color: white; /* Warna teks putih */
-    padding: 10px 20px; /* Jarak dalam tombol */
+    padding: 10% 20%; /* Jarak dalam tombol */
     text-align: left; /* Teks rata tengah */
     text-decoration: none; /* Menghilangkan garis bawah pada tautan */
     display: inline-block; /* Membuat tombol tampil dalam baris yang sama */
@@ -69,7 +70,7 @@ h1 {
     font-weight: bold;
     color: #0262b3;
     text-align: left;
-    position: relative;left: 5.2%; bottom: 67%;
+    position: relative;left: 5.2%; bottom: 62%;
     transition: background-color 0.3s, color: 0.3s;
 }
 
@@ -78,7 +79,16 @@ h1 {
     font-weight: bold;
     color: #0262b3;
     text-align: left;
-    position: relative;left: 37.9%; bottom: 71%;
+    position: relative;left: 37.9%; bottom: 66.5%;
+    transition: background-color 0.3s, color: 0.3s;
+}
+
+.desc2 {
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    font-weight: bold;
+    color: #0262b3;
+    text-align: left;
+    position: relative;left: 70.3%; bottom: 71%;
     transition: background-color 0.3s, color: 0.3s;
 }
 
@@ -93,6 +103,28 @@ h1 {
     position: absolute;
     top: 55%;
     left: 9%;
+    height: auto;
+    transition: background-color 0.3s, color 1.5s;
+    pointer-events: auto;
+}
+
+.button-img1{
+    background-image: url('{% static 'images/Glass.png' %}');
+    color: #ffffff;
+    position: absolute;
+    top: 55%;
+    left: 43.5%;
+    height: auto;
+    transition: background-color 0.3s, color 1.5s;
+    pointer-events: auto;
+}
+
+.button-img2{
+    background-image: url('{% static 'images/Info.png' %}');
+    color: #ffffff;
+    position: absolute;
+    top: 55%;
+    left: 75.5%;
     height: auto;
     transition: background-color 0.3s, color 1.5s;
     pointer-events: auto;

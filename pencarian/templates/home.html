@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
-        /* Mengatur gambar sebagai background untuk body */
+        
         body {
             background-image: url("{% static 'images/background1.jpg' %}");
             background-size: cover;
@@ -16,6 +16,25 @@
             background-attachment: fixed;
             height: 100vh;
             margin: 0;
+
+        .logout-button {
+            position: fixed; 
+            top: 5%; 
+            right: 5%;  
+            padding: 0.5% 1%;  
+            background-color: #0262b3;  
+            color: white;  
+            border: none;
+            border-radius: 10%;  
+            font-size: 1rem; 
+            cursor: pointer;  
+            z-index: 10;  
+        }
+
+        .logout-button:hover {
+            background-color: #ffffff;  
+            color: #0262b3;  
+        }
         }
     </style>
 </head>
@@ -30,4 +49,9 @@
     <p class="desc1">Cari judul buku Tugas Akhir</p>
     <p class="desc2">Informasi seputar aplikasi</p>
 
+    <!-- Tombol Logout -->
+    <a href="{% url 'logout' %}">
+        <button class="logout-button">Keluar</button>
+    </a>
+</body>
 </html>

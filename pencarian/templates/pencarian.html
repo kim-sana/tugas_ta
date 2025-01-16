@@ -29,7 +29,7 @@
 
         input[type="text"] {
             padding: 10px;
-            width: 300px;
+            width: 30%;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
@@ -81,21 +81,31 @@
             background-color: #f1f1f1;
         }
 
-        /* Link kembali */
-        a {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
+        /* Tombol kembali */
+        .back-link {
+            position: absolute;
+            top: 3%; /* Jarak dari atas */
+            right: 3%; /* Jarak dari kiri */
             text-decoration: none;
-            color: #0262b3;
+            background-color: #0262b3;
+            color: white;
+            padding: 0.5% 1%; /* Padding dalam persen */
+            border-radius: 10%; /* Membulatkan sudut tombol */
+            font-size: 100%; /* Ukuran teks */
+            font-weight: bold;
+            text-align: center;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .back-link:hover {
+            background-color: #004a91;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <!-- Tombol Kembali -->
+    <a href="{% url 'home' %}" class="back-link">Kembali</a>
+
     <h1>Pencarian Data</h1>
     <form method="get">
         <input type="text" name="query" placeholder="Masukkan kata kunci" value="{{ query }}">
@@ -132,7 +142,5 @@
             {% endfor %}
         </tbody>
     </table>
-
-    <a href="{% url 'home' %}">Kembali ke Beranda</a>
 </body>
 </html>

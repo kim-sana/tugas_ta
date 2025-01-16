@@ -1,19 +1,99 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/login_signup.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background-login.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .form-container h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background: #0262b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background: #004a8c;
+        }
+
+        .form-container a {
+            color: #0262b3;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .form-container a:hover {
+            text-decoration: underline;
+        }
+
+        .form-footer {
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="mt-5">Halaman Login</h2>
-        <form method="POST" class="mt-4">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+        <div class="form-container">
+            <h1>Silahkan Login</h1>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="form-footer">
+                <p>Belum punya akun? <a href="{% url 'signup' %}">Daftar sekarang</a></p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

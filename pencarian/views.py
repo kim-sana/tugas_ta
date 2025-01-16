@@ -1,36 +1,54 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 from .models import TugasAkhir
 from .forms import LoginForm
-
-
+from .forms import CustomUserCreationForm
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('home') #Ke halaman utama apabila berhasil login
-    
+        return redirect('home') 
+
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home') #Ke halaman utama setelah login berhasil
-            else:
-                form.add_error(None, "Username atau Password salah wok")
-    
+                return redirect('home') 
     else:
-        form = LoginForm()
-
+        form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
 def tentang(request):
     return render(request, 'tentang.html')
 
+@login_required
 def home(request):
     return render(request, 'home.html')
-    
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return redirect('home')  
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, 'signup.html', {'form': form})
+
+def logout_view(request):
+    logout(request)  
+    return redirect('login') 
+
 def lihat_data(request):
     data = TugasAkhir.objects.all()
     return render(request, 'lihat_data.html', {'data': data})

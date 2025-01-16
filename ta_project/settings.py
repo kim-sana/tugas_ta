@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/login/'  # URL ke halaman login
+LOGIN_REDIRECT_URL = '/'  # URL setelah login berhasil
+LOGOUT_REDIRECT_URL = '/login/'  # URL setelah logout
+
 
 # Application definition
 

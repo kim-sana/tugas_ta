@@ -1,13 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lihat Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #0262b3;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0262b3;
+            color: white;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Gaya untuk tombol kembali */
+        .back-link {
+            position: absolute; /* Posisi absolut agar berada di kiri atas */
+            top: 3%; /* Jarak dari atas halaman */
+            right: 3%; /* Jarak dari kiri halaman */
+            text-decoration: none;
+            background-color: #0262b3; /* Warna latar tombol */
+            color: white; /* Warna teks */
+            padding: 0.5% 1%; /* Padding tombol menggunakan % */
+            border-radius: 10%; /* Membulatkan sudut tombol */
+            font-size: 100%; /* Ukuran teks dalam % */
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Efek hover pada tombol kembali */
+        .back-link:hover {
+            background-color: #014a7c;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <h1>Data Tugas Akhir</h1>
-    <table border="1">
+
+    <a href="{% url 'home' %}" class="back-link">kembali</a>
+
+    <h1>Data Tugas Akhir 2021-2022</h1>
+
+    <table>
         <tr>
-            <th>No TA</th>
+            <th>Nomor TA</th>
             <th>NIM</th>
             <th>Nama</th>
             <th>Judul</th>
@@ -21,8 +89,6 @@
         </tr>
         {% endfor %}
     </table>
-    
-    <br>
-    <a href="{% url 'home' %}">Kembali ke Beranda</a>
+
 </body>
 </html>

@@ -4,29 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Aplikasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        h1, h2 {
+            text-align: left;
+            color: #0262b3;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 80%;
+            margin: 2% auto;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+            max-width: 80%;
+            margin: 2% auto;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #0262b3;
+            padding-right: 10px;
+        }
+
+        /* Tombol kembali */
+        .back-link {
+            position: absolute;
+            top: 3%; /* Jarak dari atas halaman */
+            right: 3%; /* Jarak dari kiri halaman */
+            text-decoration: none;
+            background-color: #0262b3; /* Warna latar tombol */
+            color: white; /* Warna teks */
+            padding: 0.5% 1%; /* Padding tombol menggunakan % */
+            border-radius: 10%; /* Membulatkan sudut tombol */
+            font-size: 100%; /* Ukuran teks dalam % */
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            background-color: #014a7c;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+
+    <a href="{% url 'home' %}" class="back-link">Kembali</a>
+
     <h1>Tentang Aplikasi</h1>
+
     <p>Aplikasi pencarian judul tugas akhir ini dibangun menggunakan library tkinter dengan menggunakan Bahasa Pemrograman Python. Aplikasi ini terdiri dari 4 fitur antara lain Login, Lihat daftar judul TA, Pencarian judul, Tentang Aplikasi, Logout.</p>
-    
+
     <h2>Fitur-Fitur:</h2>
     <ul>
-        <li><strong>Login:</strong> Pengguna diminta untuk melakukan login dengan memasukkan username dan password, Kemudian pengguna harus memasukkan file Json untuk dapat masuk ke aplikasi.</li>
-        <li><strong>Lihat Daftar Judul TA:</strong> Pengguna dapat melihat daftar judul TA. pada aplikasi ini judul TA yang ditampilkan hanya lulusan tahun 2021 dan 2022.</li>
-        <li><strong>Pencarian Judul:</strong> Pengguna dapat mencari daftar judul TA. Pada fitur ini pengguna dapat memilih hasil pencarian berdasarkan 4 data yaitu berdasarkan Nomor TA, Nama Penulis, NIM Penulis, dan Judul TA.</li>
+        <li><strong>Login:</strong> Pengguna diminta untuk melakukan login dengan memasukkan username dan password. Kemudian pengguna harus memasukkan file JSON untuk dapat masuk ke aplikasi.</li>
+        <li><strong>Lihat Daftar Judul TA:</strong> Pengguna dapat melihat daftar judul TA. Pada aplikasi ini, judul TA yang ditampilkan hanya lulusan tahun 2021 dan 2022.</li>
+        <li><strong>Pencarian Judul:</strong> Pengguna dapat mencari daftar judul TA. Pada fitur ini, pengguna dapat memilih hasil pencarian berdasarkan 4 data, yaitu berdasarkan Nomor TA, Nama Penulis, NIM Penulis, dan Judul TA.</li>
         <li><strong>Logout:</strong> Pengguna dapat keluar dari aplikasi dengan menekan tombol Keluar pada portal Utama.</li>
     </ul>
 
     <h2>Aplikasi ini dirancang oleh:</h2>
     <ul>
-        <li>Fathur Rizky Ramadhan \t\t3202416061</li>
-        <li>Muhammad Rafli Andri Fatiha \t\t3202416141</li>
-        <li>Nazriel Putra Febrinanda \t\t3202416113</li>
-        <li>Iqbal Ade Saputra \t\t\t3202416096</li>
-        <li>Muhammad Bagus Prawira \t\t3202416150</li>
+        <li>Fathur Rizky Ramadhan - 3202416061</li>
+        <li>Muhammad Rafli Andri Fatiha - 3202416141</li>
+        <li>Nazriel Putra Febrinanda - 3202416113</li>
+        <li>Iqbal Ade Saputra - 3202416096</li>
+        <li>Muhammad Bagus Prawira - 3202416150</li>
     </ul>
 
-    <br>
-    <a href="{% url 'home' %}">Kembali ke Beranda</a>
 </body>
 </html>

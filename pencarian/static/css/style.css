@@ -4,6 +4,7 @@
     src: url('{% BRLNSDB.TTF" %}') format('truetype');
     font-weight: bold;
     font-style: normal;
+    overflow: hidden;
 }
 
 /* Mengatur gambar sebagai background untuk body */

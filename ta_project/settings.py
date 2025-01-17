@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 LOGIN_URL = '/login/'  # URL ke halaman login
 LOGIN_REDIRECT_URL = '/'  # URL setelah login berhasil
 LOGOUT_REDIRECT_URL = '/login/'  # URL setelah logout
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 
 # Application definition

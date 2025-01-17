@@ -4,68 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Aplikasi</title>
+    {% load static %}
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: linear-gradient(to bottom right, #0262b3, #4fa0d9);
             margin: 0;
             padding: 0;
-            text-align: left;
+            color: #fff;
         }
 
         h1, h2 {
-            text-align: left;
-            color: #0262b3;
+            text-align: center;
+            color: #fff;
+            margin-top: 5%;
         }
 
-        p {
+        p, ul {
             font-size: 1.2em;
-            line-height: 1.6;
-            text-align: left;
+            line-height: 1.8;
             max-width: 80%;
             margin: 2% auto;
-            padding: 0;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            font-size: 1.1em;
-            max-width: 80%;
-            margin: 2% auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3%;
+            border-radius: 10%;
+            box-shadow: 0 2% 4% rgba(0, 0, 0, 0.2);
         }
 
         ul li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            text-align: left;
+            margin-bottom: 1%;
+            padding-left: 5%;
         }
 
         ul li::before {
             content: "•";
-            color: #0262b3;
-            padding-right: 10px;
+            color: #ffdd57;
+            padding-right: 2%;
         }
 
-        /* Tombol kembali */
-        .back-link {
-            position: absolute;
-            top: 3%; /* Jarak dari atas halaman */
-            right: 3%; /* Jarak dari kiri halaman */
-            text-decoration: none;
-            background-color: #0262b3; /* Warna latar tombol */
-            color: white; /* Warna teks */
-            padding: 0.5% 1%; /* Padding tombol menggunakan % */
-            border-radius: 10%; /* Membulatkan sudut tombol */
-            font-size: 100%; /* Ukuran teks dalam % */
-            font-weight: bold;
+        .team-photo {
+            display: block;
+            width: 50%;
+            height: auto;
+            margin: 5% auto;
+            position: relative;
+            border-radius: 10%;
+            box-shadow: 0 3% 5% rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .team-photo:hover + .photo-caption {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .photo-caption {
             text-align: center;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: rgba(255, 221, 87, 0.9);
+            padding: 2%;
+            border-radius: 8%;
+            max-width: 60%;
+            margin: 1% auto;
+            position: relative;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5%);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2% 4% rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2%;
+            right: 3%;
+            text-decoration: none;
+            color: #fff;
+            background-color: #ffdd57;
+            padding: 1% 3%;
+            border-radius: 20%;
+            font-weight: bold;
+            font-size: 1em;
+            box-shadow: 0 2% 3% rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
         }
 
         .back-link:hover {
-            background-color: #014a7c;
-            color: white;
+            background-color: #ffd43b;
+            color: #000;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -75,14 +104,18 @@
 
     <h1>Tentang Aplikasi</h1>
 
-    <p>Aplikasi pencarian judul tugas akhir ini dibangun menggunakan library tkinter dengan menggunakan Bahasa Pemrograman Python. Aplikasi ini terdiri dari 4 fitur antara lain Login, Lihat daftar judul TA, Pencarian judul, Tentang Aplikasi, Logout.</p>
+    <p>
+        Aplikasi pencarian judul tugas akhir ini dibangun menggunakan kerangka kerja web Django dengan menggunakan Bahasa Pemrograman Python. 
+        Aplikasi ini terdiri dari 6 fitur utama: Login, Buat akun, Lihat daftar judul, Pencarian judul, Tentang Aplikasi, dan Logout.
+    </p>
 
     <h2>Fitur-Fitur:</h2>
     <ul>
-        <li><strong>Login:</strong> Pengguna diminta untuk melakukan login dengan memasukkan username dan password. Kemudian pengguna harus memasukkan file JSON untuk dapat masuk ke aplikasi.</li>
-        <li><strong>Lihat Daftar Judul TA:</strong> Pengguna dapat melihat daftar judul TA. Pada aplikasi ini, judul TA yang ditampilkan hanya lulusan tahun 2021 dan 2022.</li>
-        <li><strong>Pencarian Judul:</strong> Pengguna dapat mencari daftar judul TA. Pada fitur ini, pengguna dapat memilih hasil pencarian berdasarkan 4 data, yaitu berdasarkan Nomor TA, Nama Penulis, NIM Penulis, dan Judul TA.</li>
-        <li><strong>Logout:</strong> Pengguna dapat keluar dari aplikasi dengan menekan tombol Keluar pada portal Utama.</li>
+        <li><strong>Login:</strong> Pengguna melakukan login dengan memasukkan username dan password.</li>
+        <li><strong>Buat Akun:</strong> Pengguna dapat membuat akun agar dapat masuk ke aplikasi.</li>
+        <li><strong>Lihat Daftar Judul TA:</strong> Pengguna dapat melihat daftar judul TA yang tersedia.</li>
+        <li><strong>Pencarian Judul:</strong> Pengguna dapat mencari daftar judul berdasarkan kategori.</li>
+        <li><strong>Logout:</strong> Pengguna dapat keluar dari aplikasi.</li>
     </ul>
 
     <h2>Aplikasi ini dirancang oleh:</h2>
@@ -93,6 +126,12 @@
         <li>Iqbal Ade Saputra - 3202416096</li>
         <li>Muhammad Bagus Prawira - 3202416150</li>
     </ul>
+
+    <!-- Foto interaktif -->
+    <img src="{% static 'images/kelompok.jpg' %}" alt="Foto Kelompok" class="team-photo">
+    <div class="photo-caption">
+        Nazriel - Fathur - Rafli - Iqbal - Bagus
+    </div>
 
 </body>
 </html>
